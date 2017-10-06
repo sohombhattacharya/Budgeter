@@ -32,7 +32,7 @@ class ToDoForm extends React.Component {
         return (
             <form onSubmit={this.createNewItem}>
                 <input type="text" ref="newItemDescription" value={this.state.description} onChange={this.handleDescriptionChange}/>
-                <input type="number" min="0" step="any" ref="newItemPrice" value={this.state.price} onChange={this.handlePriceChange}/>
+                <input type="number" min="0.01" step="0.01" ref="newItemPrice" value={this.state.price} onChange={this.handlePriceChange}/>
                 <button type="submit">Add</button>
             </form>            
             
