@@ -8,7 +8,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            items: []
+            items: [],
+            budget: 0.00
         };
         this.createNewItem = this.createNewItem.bind(this);
     }
