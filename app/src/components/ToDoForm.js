@@ -3,24 +3,36 @@ class ToDoForm extends React.Component {
     
     constructor(){
         super();
+        this.state = {
+            description: "",
+            price: ""
+        }
         this.createNewItem = this.createNewItem.bind(this);
+        this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+        this.handlePriceChange = this.handlePriceChange.bind(this);
     }
     
     createNewItem(event) {
         event.preventDefault();
-        var description = this.refs.newItemDescription.value;
-        var price = this.refs.newItemPrice.value;
-        if (description == "" && price == "") {
-            this.props.createNewItem(description, price);
-            this.refs.newItemDescription.value = '';
-            this.refs.newItemPrice.value = '';
+        
+        if (this.state.description != "" && this.state.price != "") {
+            this.props.createNewItem(this.state.description, this.state.price);
+            this.setState({description: "", price: ""});
         }
     }
+    
+    handleDescriptionChange(event) {
+      this.setState({description: event.target.value})
+    }
+    
+    handlePriceChange(event) {
+      this.setState({price: event.target.value})
+    }    
     render(){
         return (
             <form onSubmit={this.createNewItem}>
-                <input type="text" ref="newItemDescription" value="" required/>
-                <input type="text" ref="newItemPrice" value="" required/>
+                <input type="text" ref="newItemDescription" value={this.state.description} onChange={this.handleDescriptionChange}/>
+                <input type="number" min="0" step="any" ref="newItemPrice" value={this.state.price} onChange={this.handlePriceChange}/>
                 <button type="submit">Add</button>
             </form>            
             
@@ -30,3 +42,10 @@ class ToDoForm extends React.Component {
 }
 
 export default ToDoForm;
+/*
+            <form onSubmit={this.createNewItem}>
+                <input type="text" ref="newItemDescription"/> 
+                <input type="text" ref="newItemPrice"/>
+                <button type="submit">+</button>
+            </form> 
+            */
