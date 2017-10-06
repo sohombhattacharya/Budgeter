@@ -19,10 +19,14 @@ class ToDoForm extends React.Component {
     render(){
         return (
             <form onSubmit={this.createNewItem}>
-                <input type="text" ref="newItemDescription" value="" required><input type="text" ref="newItemPrice" value="" required><button type="submit">Add</button>
+                <input type="text" ref="newItemDescription" value="" required/>
+                <input type="text" ref="newItemPrice" value="" required/>
+                <button type="submit">Add</button>
             </form>            
             
         );
     }
 
 }
+
+export default ToDoForm;

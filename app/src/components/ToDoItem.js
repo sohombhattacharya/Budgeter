@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-class TodoItem extends React.Component {
+class ToDoItem extends React.Component {
     constructor(props){
         super(props);
-        this.state.description = this.props.description;
-        this.state.price = this.props.price;
+        this.state = {
+            description: this.props.description,
+            price: this.props.price
+        };
     }
     render() {
         return (
@@ -11,3 +13,4 @@ class TodoItem extends React.Component {
             );
     }
 }
+export default ToDoItem;
