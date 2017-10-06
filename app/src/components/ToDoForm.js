@@ -48,10 +48,3 @@ class ToDoForm extends React.Component {
 }
 
 export default ToDoForm;
-/*
-            <form onSubmit={this.createNewItem}>
-                <input type="text" ref="newItemDescription"/> 
-                <input type="text" ref="newItemPrice"/>
-                <button type="submit">+</button>
-            </form> 
-            */
