@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            items: [],
+            items: {},
             count: 0,
             budget: 0.00
         };
@@ -18,17 +18,13 @@ class App extends Component {
     
     createNewItem(description, price){
         this.setState({count: this.state.count + 1})
-        this.state.items.push(<ToDoItem description={description} price={price} key={this.state.count} index={this.state.count} deleteItem={this.deleteItem} />);
+        this.state.items[this.state.count] = <ToDoItem description={description} price={price} key={this.state.count} index={this.state.count} deleteItem={this.deleteItem} />;
         this.setState({items: this.state.items});
     }
     deleteItem(index){
-		var items = this.state.items;
-        console.log(items);
-		items = items.filter(function (i) {
-			return i.props.index !== index;
-		});
+        var items = this.state.items; 
+        delete items[index];
         this.setState({items: items});
-        console.log(items);
     }
     render() {
         return (
