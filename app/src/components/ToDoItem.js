@@ -16,7 +16,7 @@ class ToDoItem extends React.Component {
         return (
             <li>
                 <div>
-                    {this.state.description} Price: {this.state.price}
+                    {this.state.description} <span class="badge">{this.state.price}</span>
                     <button type="button" className="btn btn-xs btn-danger img-circle" onClick={this.deleteItem}>  &#xff38;</button>
                 </div>
             </li>
