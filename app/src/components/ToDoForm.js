@@ -15,7 +15,7 @@ class ToDoForm extends React.Component {
     createNewItem(event) {
         event.preventDefault();
         
-        if (this.state.description != "" && this.state.price != "") {
+        if (this.state.description !== "" && this.state.price !== "") {
             this.props.createNewItem(this.state.description, this.state.price);
             this.setState({description: "", price: ""});
         }
