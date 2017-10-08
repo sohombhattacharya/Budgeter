@@ -4,6 +4,9 @@ class ToDoList extends React.Component {
     deleteItem(index){
         this.props.deleteItem(index);
     }
+    editItem(index){
+        this.props.editItem(index);
+    }
     render(){
         var items = Object.values(this.props.items);
         var sum = items.reduce(function(total, item) {

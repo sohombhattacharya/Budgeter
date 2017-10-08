@@ -13,18 +13,32 @@ class App extends Component {
         };
         this.createNewItem = this.createNewItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
+        this.editItem = this.editItem.bind(this);
         this.setBudget = this.setBudget.bind(this);
     }
     createNewItem(description, price){
         this.setState({count: this.state.count + 1})
         var items = this.state.items; 
-        items[this.state.count] = <ToDoItem description={description} price={price} key={this.state.count} index={this.state.count} deleteItem={this.deleteItem} />;
+        items[this.state.count] = <ToDoItem description={description} price={price} key={this.state.count} index={this.state.count} deleteItem={this.deleteItem} editItem={this.editItem}/>;
         this.setState({items: items});
     }
     deleteItem(index){
         var items = this.state.items; 
         delete items[index];
         this.setState({items: items});
+    }
+    editItem(index){
+        var items = this.state.items; 
+        var item = items[index];
+        var newDescription = prompt("Enter new name", item.props.description)
+        if (newDescription != null && newDescription != ""){
+            var newPrice = prompt("Enter new price", item.props.price)
+            if (newPrice != null && newPrice != ""){
+                delete items[index]
+                this.createNewItem(newDescription, newPrice)
+            }
+
+        }
     }
     setBudget(val){
         this.setState({budget: val});
@@ -37,7 +51,7 @@ class App extends Component {
                     <ToDoForm createNewItem={this.createNewItem}/>
                     <h3>Budget: ${this.state.budget}</h3>
                 </div>
-                <ToDoList items={this.state.items} deleteItem={this.deleteItem} budget={this.state.budget}/>
+                <ToDoList items={this.state.items} deleteItem={this.deleteItem} editItem={this.editItem} budget={this.state.budget}/>
             </div>
         );
     }
