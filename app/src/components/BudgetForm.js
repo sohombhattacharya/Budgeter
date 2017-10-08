@@ -22,7 +22,7 @@ class BudgetForm extends React.Component {
                 <div class="form-group">
                     <div class="input-group">
                     <span class="input-group-addon">Budget</span>
-                    <input type="text"  class="form-control" id="budget" ref="budget" value={this.state.budget} onChange={this.handleBudgetChange}/>
+                    <input type="number"  class="form-control" id="price" min="0.01" step="0.01" class="form-control" id="budget" ref="budget" value={this.state.budget} onChange={this.handleBudgetChange}/>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-default">Set</button>
