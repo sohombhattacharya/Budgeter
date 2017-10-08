@@ -19,10 +19,15 @@ class ToDoItem extends React.Component {
     }
     render() {
         return (
-            <li class="list-group-item"><button type="button" class="close" aria-label="Close" onClick={this.deleteItem}><span aria-hidden="true">&times;</span>
-</button>{this.state.description}<span class="badge">${this.state.price}</span><span><button type="button" class="btn btn-default" onClick={this.editItem}>
-          <span class="glyphicon glyphicon-edit"></span> Edit
-        </button></span>
+            <li class="list-group-item">
+                <button type="button" class="close" aria-label="Close" onClick={this.deleteItem}>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <button type="button" class="close" aria-label="Close" onClick={this.editItem}>
+                    <span aria-hidden="true">&#9986;</span>
+                </button>            
+                {this.state.description}
+                <span class="badge">${this.state.price}</span>
             </li>
             );
     }
