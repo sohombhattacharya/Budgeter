@@ -14,11 +14,8 @@ class ToDoItem extends React.Component {
     }
     render() {
         return (
-            <li>
-                <div>
-                    {this.state.description} <span class="badge">{this.state.price}</span>
-                    <button type="button" className="btn btn-xs btn-danger img-circle" onClick={this.deleteItem}>  &#xff38;</button>
-                </div>
+            <li class="list-group-item"><button type="button" class="close" aria-label="Close" onClick={this.deleteItem}><span aria-hidden="true">&times;</span>
+</button>{this.state.description}<span class="badge">${this.state.price}</span>
             </li>
             );
     }

@@ -32,12 +32,16 @@ class ToDoForm extends React.Component {
         return (
             <form onSubmit={this.createNewItem} class="form-inline">
                 <div class="form-group">
-                    <label for="item">Item:</label>
-                    <input type="text" ref="newItemDescription" value={this.state.description} onChange={this.handleDescriptionChange}/>
+                    <div class="input-group">
+                    <span class="input-group-addon">Item</span>
+                    <input type="text"  class="form-control" id="description" ref="newItemDescription" value={this.state.description} onChange={this.handleDescriptionChange}/>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="item">Price:</label>
-                    <input type="number" min="0.01" step="0.01" ref="newItemPrice" value={this.state.price} onChange={this.handlePriceChange}/>
+                    <div class="input-group">
+                    <span class="input-group-addon">Price</span>
+                    <input type="number"  class="form-control" id="price" min="0.01" step="0.01" ref="newItemPrice" value={this.state.price} onChange={this.handlePriceChange}/>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-default">Add</button>
             </form>            
